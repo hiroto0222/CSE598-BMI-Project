@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMIService", "BMIService\BMIService.csproj", "{B8465C60-888A-4539-A345-F50AD6C181D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMIClient", "BMIClient\BMIClient.csproj", "{385D3321-4245-47A0-8254-483474E2909A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8465C60-888A-4539-A345-F50AD6C181D9} = {B8465C60-888A-4539-A345-F50AD6C181D9}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
