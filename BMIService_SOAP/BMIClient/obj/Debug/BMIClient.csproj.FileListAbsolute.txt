@@ -1,0 +1,6 @@
+C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIClient\bin\Debug\BMIClient.exe.config
+C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIClient\bin\Debug\BMIClient.exe
+C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIClient\bin\Debug\BMIClient.pdb
+C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIClient\obj\Debug\BMIClient.csproj.CoreCompileInputs.cache
+C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIClient\obj\Debug\BMIClient.exe
+C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIClient\obj\Debug\BMIClient.pdb

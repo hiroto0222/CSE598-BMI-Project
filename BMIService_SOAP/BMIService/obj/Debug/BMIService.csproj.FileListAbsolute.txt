@@ -52,7 +52,6 @@ C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIServic
 C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIService\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIService\obj\Debug\BMIService.csproj.AssemblyReference.cache
 C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIService\obj\Debug\BMIService.csproj.CoreCompileInputs.cache
 C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIService\obj\Debug\BMIService.csproj.CopyComplete
 C:\Users\aoyamahiroto\Documents\ASU\CSE598-BMI-Project\BMIService_SOAP\BMIService\obj\Debug\BMIService.dll
