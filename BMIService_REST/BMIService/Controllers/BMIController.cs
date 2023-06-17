@@ -60,12 +60,29 @@ namespace BMIService.Controllers
         public Health(int height, int weight)
         {
             bmi = CalcBMI(height, weight);
-            risk = "risk";
+            risk = CalcRisk();
         }
 
-        public double CalcBMI(int height, int weight)
+        private double CalcBMI(int height, int weight)
         {
             return (double)weight / height / height * 703;
+        }
+        
+        private string CalcRisk()
+        {
+            if (bmi < 18)
+            {
+                return "Blue Color, You are underweight with BMI < 18"; 
+            } else if (bmi < 25)
+            {
+                return "Green Color, You are normal with BMI >= 18 and < 25";
+            } else if (bmi <= 30)
+            {
+                return "Purple Color, You are pre-obese with BMI >= 25 and <= 30";
+            } else
+            {
+                return "Red Color, You are obese with BMI > 30";
+            }
         }
     }
 }
