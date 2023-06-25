@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct BMI_Client_AppApp: App {
+struct BMI_Client: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

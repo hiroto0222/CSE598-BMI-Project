@@ -8,46 +8,75 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var height = 0.0
-    @State private var weight = 0.0
+    @State private var heightText = ""
+    @State private var weightText = ""
+    @State private var resultText = ""
+    
+    private let apiURL = "http://webstrar99.fulton.asu.edu/page8/Service1.svc/calculateBMI"
     
     var body: some View {
         VStack {
             Text("BMI API")
                 .font(.title)
+            
+            TextField("Enter weight", text: $weightText)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            TextField("Enter height", text: $heightText)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            Button(action: getHealth) {
+                Text("Get Health")
+            }
+            .padding()
+            
+            Text(resultText)
+                .padding()
+                .multilineTextAlignment(.center)
         }
         .padding()
     }
     
-    func getHealth() async throws -> Health {
-        let endpoint = "http://webstrar99.fulton.asu.edu/page8/Service1.svc/calculateBMI?"
+    private func getHealth() {
+        guard let weight = Double(weightText), let height = Double(heightText)
+        else {
+            resultText = "Invalid input, weight and height must be decimals"
+            return
+        }
         
+        let endpoint = "\(apiURL)?weight=\(weight)&height=\(height)"
         guard let url = URL(string: endpoint)
         else {
-            throw GHError.invalidURL
+            resultText = "Invalid input"
+            return
         }
         
-        let (data, res) = try await URLSession.shared.data(from: url)
+        print(url)
         
-        guard let res = res as? HTTPURLResponse, res.statusCode == 200
-        else {
-            throw GHError.invalidResponse
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                resultText = "Error: \(error.localizedDescription)"
+                return
+            }
+            
+            guard let data = data
+            else {
+                resultText = "Failed to obtain data"
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let healthData = try decoder.decode(Health.self, from: data)
+                resultText = "BMI: \(healthData.bmi)\n\n\(healthData.risk)"
+            } catch {
+                print("Error decoding JSON: \(error)")
+            }
         }
-        
-        do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try decoder.decode(Health.self, from: data)
-        } catch {
-            throw GHError.invalidData
-        }
+        .resume()
     }
-}
-
-enum GHError: Error {
-    case invalidURL
-    case invalidResponse
-    case invalidData
 }
 
 struct ContentView_Previews: PreviewProvider {

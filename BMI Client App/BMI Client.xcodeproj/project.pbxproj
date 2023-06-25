@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B950BA32A483D8000ABB679 /* BMI_Client_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B950BA22A483D8000ABB679 /* BMI_Client_AppApp.swift */; };
+		7B950BA32A483D8000ABB679 /* BMI_Client_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B950BA22A483D8000ABB679 /* BMI_Client_App.swift */; };
 		7B950BA52A483D8000ABB679 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B950BA42A483D8000ABB679 /* ContentView.swift */; };
 		7B950BA72A483D8100ABB679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B950BA62A483D8100ABB679 /* Assets.xcassets */; };
 		7B950BAA2A483D8100ABB679 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B950BA92A483D8100ABB679 /* Preview Assets.xcassets */; };
@@ -16,11 +16,12 @@
 
 /* Begin PBXFileReference section */
 		7B950B9F2A483D8000ABB679 /* BMI Client App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMI Client App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B950BA22A483D8000ABB679 /* BMI_Client_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI_Client_AppApp.swift; sourceTree = "<group>"; };
+		7B950BA22A483D8000ABB679 /* BMI_Client_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI_Client_App.swift; sourceTree = "<group>"; };
 		7B950BA42A483D8000ABB679 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7B950BA62A483D8100ABB679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B950BA92A483D8100ABB679 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B950BB12A486DB800ABB679 /* Health.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
+		7B950BB32A48768D00ABB679 /* BMI-Client-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BMI-Client-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +54,9 @@
 		7B950BA12A483D8000ABB679 /* BMI Client App */ = {
 			isa = PBXGroup;
 			children = (
+				7B950BB32A48768D00ABB679 /* BMI-Client-App-Info.plist */,
 				7B950BB02A486CE400ABB679 /* Models */,
-				7B950BA22A483D8000ABB679 /* BMI_Client_AppApp.swift */,
+				7B950BA22A483D8000ABB679 /* BMI_Client_App.swift */,
 				7B950BA42A483D8000ABB679 /* ContentView.swift */,
 				7B950BA62A483D8100ABB679 /* Assets.xcassets */,
 				7B950BA82A483D8100ABB679 /* Preview Content */,
@@ -150,7 +152,7 @@
 			files = (
 				7B950BA52A483D8000ABB679 /* ContentView.swift in Sources */,
 				7B950BB22A486DB800ABB679 /* Health.swift in Sources */,
-				7B950BA32A483D8000ABB679 /* BMI_Client_AppApp.swift in Sources */,
+				7B950BA32A483D8000ABB679 /* BMI_Client_App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +283,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BMI Client App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BMI-Client-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -309,6 +312,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BMI Client App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BMI-Client-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
