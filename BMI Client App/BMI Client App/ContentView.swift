@@ -44,12 +44,6 @@ struct ContentView: View {
     }
 }
 
-struct Health: Codable {
-    let bmi: Double
-    let risk: String
-    let more: [String]
-}
-
 enum GHError: Error {
     case invalidURL
     case invalidResponse
