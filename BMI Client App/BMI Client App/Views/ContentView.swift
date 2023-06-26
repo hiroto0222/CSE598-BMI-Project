@@ -19,25 +19,37 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("BMI API")
+            Spacer()
+            
+            Text("BMI Calculator")
                 .font(.title)
             
-            TextField("Enter weight", text: $weightText)
+            Spacer()
+            
+            TextField("Enter weight (lbs)", text: $weightText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
             
-            TextField("Enter height", text: $heightText)
+            TextField("Enter height (in)", text: $heightText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-            
-            Button(action: getHealth) {
-                Text("Get Health")
-            }
-            .padding()
-            
+                        
             Text(errorText)
+                .foregroundColor(.red)
                 .padding()
                 .multilineTextAlignment(.center)
+            
+            Spacer()
+                        
+            Button(action: getHealth) {
+                Text("Get Health")
+                    .font(.title2)
+                    .foregroundColor(Color(UIColor.white))
+                    .padding()
+                    .background(Color(UIColor.systemGreen))
+                    .cornerRadius(16)
+            }
+            .padding()
         }
         .padding()
     }
@@ -60,7 +72,10 @@ struct ContentView: View {
                 isShowResult = true
             } else {
                 errorText = "Failed to obtain data"
+                return
             }
+            
+            errorText = ""
         }
     }
 }
