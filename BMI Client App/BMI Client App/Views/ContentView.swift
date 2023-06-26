@@ -52,6 +52,22 @@ struct ContentView: View {
             .padding()
         }
         .padding()
+        .sheet(isPresented: $isShowResult) {
+            NavigationView {
+                if let healthData = healthData {
+                    ResultView(healthData: healthData)
+                        .navigationBarItems(leading: Button(action: dismiss) {
+                            Image(systemName: "chevron.left")
+                                .imageScale(.large)
+                                .foregroundColor(.blue)
+                        })
+                }
+            }
+        }
+    }
+    
+    private func dismiss() {
+        isShowResult = false
     }
     
     private func getHealth() {
