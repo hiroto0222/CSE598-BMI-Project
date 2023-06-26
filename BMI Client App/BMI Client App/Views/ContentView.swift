@@ -10,9 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @State private var heightText = ""
     @State private var weightText = ""
-    @State private var resultText = ""
+    @State private var errorText = ""
     
-    private let apiURL = "http://webstrar99.fulton.asu.edu/page8/Service1.svc/calculateBMI"
+    @State private var healthData: Health? = nil
+    @State private var isShowResult = false
+    
+    private let healthController = HealthController()
     
     var body: some View {
         VStack {
@@ -32,7 +35,7 @@ struct ContentView: View {
             }
             .padding()
             
-            Text(resultText)
+            Text(errorText)
                 .padding()
                 .multilineTextAlignment(.center)
         }
@@ -42,40 +45,23 @@ struct ContentView: View {
     private func getHealth() {
         guard let weight = Double(weightText), let height = Double(heightText)
         else {
-            resultText = "Invalid input, weight and height must be decimals"
+            errorText = "Invalid input, weight and height must be numbers"
             return
         }
         
-        let endpoint = "\(apiURL)?weight=\(weight)&height=\(height)"
-        guard let url = URL(string: endpoint)
-        else {
-            resultText = "Invalid input"
-            return
-        }
-        
-        print(url)
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        healthController.getHealth(weight: weight, height: height) { healthData, error in
             if let error = error {
-                resultText = "Error: \(error.localizedDescription)"
+                errorText = "Error: \(error.localizedDescription)"
                 return
             }
             
-            guard let data = data
-            else {
-                resultText = "Failed to obtain data"
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let healthData = try decoder.decode(Health.self, from: data)
-                resultText = "BMI: \(healthData.bmi)\n\n\(healthData.risk)"
-            } catch {
-                print("Error decoding JSON: \(error)")
+            if let healthData = healthData {
+                self.healthData = healthData
+                isShowResult = true
+            } else {
+                errorText = "Failed to obtain data"
             }
         }
-        .resume()
     }
 }
 
