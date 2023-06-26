@@ -83,31 +83,33 @@ struct ContentView: View {
         }
         
         healthController.getHealth(weight: weight, height: height) { healthData, error in
-            if let error = error {
-                errorText = "Error: \(error.localizedDescription)"
-                return
-            }
-            
-            if let healthData = healthData {
-                self.healthData = healthData
-                
-                if healthData.bmi < 18 {
-                    sheetManager.color = Color.blue
-                } else if healthData.bmi < 25 {
-                    sheetManager.color = Color.green
-                } else if healthData.bmi <= 30 {
-                    sheetManager.color = Color.purple
-                } else {
-                    sheetManager.color = Color.red
+            DispatchQueue.main.async {
+                if let error = error {
+                    errorText = "Error: \(error.localizedDescription)"
+                    return
                 }
                 
-                sheetManager.showSheet.toggle()
-            } else {
-                errorText = "Failed to obtain data"
-                return
+                if let healthData = healthData {
+                    self.healthData = healthData
+                    
+                    if healthData.bmi < 18 {
+                        sheetManager.color = Color.blue
+                    } else if healthData.bmi < 25 {
+                        sheetManager.color = Color.green
+                    } else if healthData.bmi <= 30 {
+                        sheetManager.color = Color.purple
+                    } else {
+                        sheetManager.color = Color.red
+                    }
+                    
+                    sheetManager.showSheet.toggle()
+                } else {
+                    errorText = "Failed to obtain data"
+                    return
+                }
+                
+                errorText = ""
             }
-            
-            errorText = ""
         }
     }
 }
