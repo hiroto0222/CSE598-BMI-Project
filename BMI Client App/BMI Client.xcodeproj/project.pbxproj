@@ -13,7 +13,7 @@
 		7B950BA52A483D8000ABB679 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B950BA42A483D8000ABB679 /* ContentView.swift */; };
 		7B950BA72A483D8100ABB679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B950BA62A483D8100ABB679 /* Assets.xcassets */; };
 		7B950BAA2A483D8100ABB679 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B950BA92A483D8100ABB679 /* Preview Assets.xcassets */; };
-		7B950BB22A486DB800ABB679 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B950BB12A486DB800ABB679 /* Health.swift */; };
+		7B950BB22A486DB800ABB679 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B950BB12A486DB800ABB679 /* HealthModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +24,7 @@
 		7B950BA42A483D8000ABB679 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7B950BA62A483D8100ABB679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B950BA92A483D8100ABB679 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7B950BB12A486DB800ABB679 /* Health.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
+		7B950BB12A486DB800ABB679 /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
 		7B950BB32A48768D00ABB679 /* BMI-Client-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BMI-Client-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -97,7 +97,7 @@
 		7B950BB02A486CE400ABB679 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7B950BB12A486DB800ABB679 /* Health.swift */,
+				7B950BB12A486DB800ABB679 /* HealthModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,7 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B950BA52A483D8000ABB679 /* ContentView.swift in Sources */,
-				7B950BB22A486DB800ABB679 /* Health.swift in Sources */,
+				7B950BB22A486DB800ABB679 /* HealthModel.swift in Sources */,
 				7B7FDDD62A49306A00E07E05 /* ResultView.swift in Sources */,
 				7B950BA32A483D8000ABB679 /* BMI_Client_App.swift in Sources */,
 				7B7FDDD42A492DAD00E07E05 /* HealthController.swift in Sources */,
