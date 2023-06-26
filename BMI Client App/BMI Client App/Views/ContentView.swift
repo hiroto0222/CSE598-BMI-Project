@@ -12,9 +12,14 @@ struct ContentView: View {
     @State private var weightText = ""
     @State private var errorText = ""
     
-    @State private var healthData: Health? = nil
-    @State private var isShowResult = false
+    @State private var healthData: Health?
     
+    class SheetMananger: ObservableObject {
+        @Published var showSheet = false
+        @Published var color: Color = Color.blue
+    }
+    
+    @StateObject var sheetManager = SheetMananger()
     private let healthController = HealthController()
     
     var body: some View {
@@ -52,14 +57,14 @@ struct ContentView: View {
             .padding()
         }
         .padding()
-        .sheet(isPresented: $isShowResult) {
+        .sheet(isPresented: $sheetManager.showSheet) {
             NavigationView {
                 if let healthData = healthData {
-                    ResultView(healthData: healthData)
+                    ResultView(healthData: healthData, color: sheetManager.color)
                         .navigationBarItems(leading: Button(action: dismiss) {
                             Image(systemName: "chevron.left")
                                 .imageScale(.large)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.black)
                         })
                 }
             }
@@ -67,7 +72,7 @@ struct ContentView: View {
     }
     
     private func dismiss() {
-        isShowResult = false
+        sheetManager.showSheet.toggle()
     }
     
     private func getHealth() {
@@ -85,7 +90,18 @@ struct ContentView: View {
             
             if let healthData = healthData {
                 self.healthData = healthData
-                isShowResult = true
+                
+                if healthData.bmi < 18 {
+                    sheetManager.color = Color.blue
+                } else if healthData.bmi < 25 {
+                    sheetManager.color = Color.green
+                } else if healthData.bmi <= 30 {
+                    sheetManager.color = Color.purple
+                } else {
+                    sheetManager.color = Color.red
+                }
+                
+                sheetManager.showSheet.toggle()
             } else {
                 errorText = "Failed to obtain data"
                 return

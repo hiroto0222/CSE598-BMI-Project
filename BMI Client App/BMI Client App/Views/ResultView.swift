@@ -9,35 +9,40 @@ import SwiftUI
 
 struct ResultView: View {
     let healthData: Health
+    let color: Color
     
     var body: some View {
-        VStack {
-            Text("BMI: \(String(format: "%.2f", healthData.bmi))")
-                .font(.title)
-                .padding()
+        ZStack {
+            color.edgesIgnoringSafeArea(.all)
             
-            Text("Risk: \(healthData.risk)")
-                .font(.title)
-                .padding()
-            
-            Text("More Information:")
-                .font(.subheadline)
-                .padding(.top)
-            
-            VStack(alignment: .leading, spacing: 8) {
-                ForEach(healthData.more, id: \.self) { infoURL in
-                    Text(infoURL)
-                        .padding(.horizontal)
-                        .foregroundColor(.blue)
-                        .underline()
-                        .onTapGesture {
-                            if let url = URL(string: infoURL) {
-                                UIApplication.shared.open(url)
+            VStack {
+                Text("BMI: \(String(format: "%.2f", healthData.bmi))")
+                    .font(.title)
+                    .padding()
+                
+                Text("Risk: \(healthData.risk)")
+                    .font(.title)
+                    .padding()
+                
+                Text("More Information:")
+                    .font(.subheadline)
+                    .padding(.top)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(healthData.more, id: \.self) { infoURL in
+                        Text(infoURL)
+                            .padding(.horizontal)
+                            .foregroundColor(.blue)
+                            .underline()
+                            .onTapGesture {
+                                if let url = URL(string: infoURL) {
+                                    UIApplication.shared.open(url)
+                                }
                             }
-                        }
+                    }
                 }
+                .font(.caption)
             }
-            .font(.caption)
         }
     }
 }
@@ -49,6 +54,6 @@ struct ResultView_Previews: PreviewProvider {
             "https://www.nhlbi.nih.gov/health/educational/lose_wt/index.htm",
             "https://www.ucsfhealth.org/education/body_mass_index_tool/"
         ])
-        ResultView(healthData: healthData)
+        ResultView(healthData: healthData, color: Color.red)
     }
 }
